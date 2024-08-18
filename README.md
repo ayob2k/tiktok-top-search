@@ -3,23 +3,20 @@
 ## How to Install
 
 ```
-npm install tiktok-search-api
+npm install tiktok-top-search
 ```
 
 ## How to Use
 
 ```
-import { TikTokSearch } from 'tiktok-search-api'
+import { fetchTikTokSearch } from 'tiktok-top-search'
 
-const results = await TikTokSearch(keyword, ttwid, pageCount)
+const results = await fetchTikTokSearch(keyword, pageCount)
 ```
 
 ## Arguments
 
 - **keyword (String)**: This is the keyword you would like to search for (uses TikTok search)
-- **ttwid (String)**: ttwid cookie
-  - get this from your Application--cookies tab in your browser
-  - include only the cookie with no semicolon, equals sign or cookie name
 - **pageCount (Number)**: number of pages you would like to get
   - each page is ~12 videos, so pageCount of 10 would give ~120 results
 
@@ -28,7 +25,8 @@ const results = await TikTokSearch(keyword, ttwid, pageCount)
 Here is a sample of the results. The results are an array of video objects with the most important parts being the item.id (video id) and the author object where you can find the author uniqueId among other things
 
 ```
- [{
+ cookies: "...",
+ items :[{
     type: 1,
     item: {
       id: '7202140515909782790',
@@ -65,6 +63,4 @@ Here is a sample of the results. The results are an array of video objects with 
  ]
 ```
 
-## Errors
-
-Not tested with high page count. It is recommended to start off with a pageCount of 3 - 7. Using higher page counts may give errors.
+You can use cookies to download videos based on video playAdr
