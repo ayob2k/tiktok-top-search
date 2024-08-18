@@ -1,4 +1,4 @@
-# TikTok Search Api
+# TikTok Top Search
 
 ## How to Install
 

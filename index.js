@@ -35,11 +35,11 @@ const axios = require("axios");
  */
 async function fetchTikTokSearch({ keyword, pages = 1 }) {
   try {
-    const { ttwid, cookieString } = await getTtwidCookie();
+    const { cookieString } = await getTtwidCookie();
 
     let searchResults = await fetchTikTokSearch1({
       keyword,
-      ttwid,
+
       cookieString,
     });
     let allResults = [];
@@ -54,7 +54,7 @@ async function fetchTikTokSearch({ keyword, pages = 1 }) {
           keyword,
           offset,
           searchId,
-          ttwid,
+
           cookieString,
         });
         if (moreResults) {
@@ -73,7 +73,7 @@ async function fetchTikTokSearch({ keyword, pages = 1 }) {
 }
 
 // Internal function to fetch the first set of results
-async function fetchTikTokSearch1({ keyword, ttwid, cookieString }) {
+async function fetchTikTokSearch1({ keyword, cookieString }) {
   const urlString = `https://www.tiktok.com/api/search/general/full/?from_page=search&keyword=${keyword}&`;
 
   try {
@@ -87,13 +87,7 @@ async function fetchTikTokSearch1({ keyword, ttwid, cookieString }) {
 }
 
 // Internal function to fetch subsequent sets of results
-async function fetchTikTokSearch2({
-  keyword,
-  offset,
-  searchId,
-  ttwid,
-  cookieString,
-}) {
+async function fetchTikTokSearch2({ keyword, offset, searchId, cookieString }) {
   const urlString = `https://www.tiktok.com/api/search/general/full/?from_page=search&keyword=${keyword}&offset=${offset}&search_id=${searchId}&`;
 
   try {
