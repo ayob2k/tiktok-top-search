@@ -1,0 +1,25 @@
+{
+  "name": "tiktok-search-api",
+  "version": "1.1.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d dist"
+  },
+  "keywords": [
+    "tiktok",
+    "tiktok api",
+    "tiktok search",
+    "tiktok search npm"
+  ],
+  "author": "jakeadelman",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4"
+  },
+  "dependencies": {
+    "puppeteer": "^23.1.0"
+  }
+}
